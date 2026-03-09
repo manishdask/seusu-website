@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .page-enter {
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(168,209,231,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168,209,231,0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #A8D1E7, #336699);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply px-6 py-4 bg-brand text-white text-xs tracking-widest uppercase font-bold 
+           hover:bg-brand-dark transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply px-6 py-4 border-2 border-brand text-brand text-xs tracking-widest uppercase 
+           font-bold hover:bg-brand hover:text-white transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .section-label {
+    @apply flex items-center gap-3 mb-4;
+  }
+
+  .section-label::before {
+    content: '';
+    @apply block w-8 h-[2px] bg-brand shrink-0;
+  }
+
+  .section-label span {
+    @apply text-brand text-[10px] tracking-[0.5em] uppercase font-bold;
+  }
+}
+
+/* Mobile-safe tap targets */
+a, button { min-height: 44px; display: inline-flex; align-items: center; }
+nav a { min-height: unset; display: inline; }
