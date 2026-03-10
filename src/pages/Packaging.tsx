@@ -79,7 +79,7 @@ export default function Packaging() {
 
                 {/* info */}
                 <div className="px-4 pb-5 pt-3">
-                  <h3 className="font-black text-black leading-tight mb-1"
+                  <h3 className="font-black text-black leading-tight mb-1 mt-1"
                     style={{ fontSize:'clamp(.9rem,3.2vw,1.05rem)', letterSpacing:'.02em' }}>
                     {item.title}
                   </h3>
