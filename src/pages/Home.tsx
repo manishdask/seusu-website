@@ -362,10 +362,10 @@ export default function Home() {
         <div className="relative safe-x" style={{ paddingTop:'clamp(3.5rem,10vw,5.5rem)', paddingBottom:'clamp(3.5rem,10vw,5.5rem)' }}>
 
           {/* Two-col: text left, image right */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-10">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10">
 
             {/* LEFT — text */}
-            <div className="flex-1" style={{ maxWidth:'480px' }}>
+            <div style={{ flex:'0 0 auto', width:'100%', maxWidth:'420px' }}>
               <div className="flex items-center gap-3 mb-5">
                 <div style={{ width:'24px', height:'1.5px', background:'#A8D1E7' }} />
                 <span className="font-black uppercase" style={{ color:'#A8D1E7', fontSize:'8px', letterSpacing:'.45em' }}>The Collection</span>
@@ -405,11 +405,11 @@ export default function Home() {
             </div>
 
             {/* RIGHT — stacked images */}
-            <div className="flex-1 w-full min-w-0">
+            <div style={{ flex:'1 1 0', minWidth:0 }}>
               <div className="grid grid-cols-2 gap-2 w-full">
 
-                {/* Large image — full width, 16:9 ratio */}
-                <div className="img-zoom col-span-2 relative w-full" style={{ aspectRatio:'16/9' }}>
+                {/* Large image */}
+                <div className="img-zoom col-span-2 relative" style={{ aspectRatio:'16/9', overflow:'hidden' }}>
                   <img src="/prod-pumps.jpg" alt="Vitamin C Glow" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition:'center 35%' }} />
                   <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(7,21,37,.9) 0%,transparent 55%)' }} />
                   <div className="absolute bottom-3 left-3">
@@ -418,8 +418,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Small left — square */}
-                <div className="img-zoom relative w-full" style={{ aspectRatio:'1/1' }}>
+                {/* Small left */}
+                <div className="img-zoom relative" style={{ aspectRatio:'4/3', overflow:'hidden' }}>
                   <img src="/prod-jars.jpg" alt="Night Repair" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition:'center 40%' }} />
                   <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(7,21,37,.88) 0%,transparent 60%)' }} />
                   <div className="absolute bottom-2 left-2">
@@ -428,8 +428,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Small right — square */}
-                <div className="img-zoom relative w-full" style={{ aspectRatio:'1/1' }}>
+                {/* Small right */}
+                <div className="img-zoom relative" style={{ aspectRatio:'4/3', overflow:'hidden' }}>
                   <img src="/prod-lotions.jpg" alt="Peptide Firm" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition:'center 35%' }} />
                   <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(7,21,37,.88) 0%,transparent 60%)' }} />
                   <div className="absolute bottom-2 left-2">
@@ -484,7 +484,8 @@ export default function Home() {
           <img key={prod.img} src={prod.img} alt={prod.name}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition:prod.pos, opacity:1, transition:'opacity .5s' }} />
-          <div className="absolute inset-0" style={{ background:`linear-gradient(to right, ${prod.dark}f0 0%, ${prod.dark}99 45%, transparent 100%)` }} />
+          {/* Minimal overlay — only enough to read text, image stays clear */}
+          <div className="absolute inset-0" style={{ background:`linear-gradient(to right, ${prod.dark}cc 0%, ${prod.dark}55 25%, transparent 50%)` }} />
           <div className="absolute inset-0 safe-x flex flex-col justify-center" style={{ maxWidth:'360px' }}>
             <span className="font-black uppercase mb-1" style={{ color:`${prod.color}bb`, fontSize:'8px', letterSpacing:'.42em' }}>{prod.num} / 05</span>
             <h2 className="font-black text-white leading-none mb-1" style={{ fontSize:'clamp(1.8rem,7vw,4rem)', letterSpacing:'-.02em' }}>{prod.name}</h2>
