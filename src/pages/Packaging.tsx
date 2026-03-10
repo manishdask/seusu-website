@@ -59,23 +59,21 @@ export default function Packaging() {
            sm (640): 2 columns
            lg (1024): 3 columns
       ── */}
-      <section style={{ background:'#f7f8fa', padding:'1.25rem 0 1.5rem' }}>
+      <section style={{ background:'#f7f8fa', padding:'2rem 0 2.5rem' }}>
         <div className="safe-x max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {items.map((item, i) => (
               <div key={i} className="pkg-card"
                 style={{ background:'#fff', overflow:'hidden', boxShadow:'0 2px 14px rgba(0,0,0,.06)' }}>
 
-                {/* photo */}
-                <div className="relative overflow-hidden" style={{ height:'clamp(170px,46vw,220px)' }}>
+                {/* photo — clear, no heavy overlay */}
+                <div className="relative overflow-hidden" style={{ height:'clamp(190px,48vw,240px)' }}>
                   <div style={{ position:'absolute', top:0, left:0, right:0, height:'3px', background:item.color, zIndex:2 }} />
                   <img src={item.img} alt={item.title}
                     className="w-full h-full object-cover pkg-img transition-transform duration-700"
                     style={{ objectPosition:item.pos }} />
-                  <div className="absolute inset-0"
-                    style={{ background:'linear-gradient(to bottom,transparent 30%,rgba(247,248,250,.97) 100%)' }} />
                   <div className="absolute top-3 left-4" style={{ zIndex:2 }}>
-                    <span className="font-black" style={{ color:'rgba(255,255,255,.18)', fontSize:'2.8rem', lineHeight:1 }}>{item.num}</span>
+                    <span className="font-black" style={{ color:'rgba(255,255,255,.25)', fontSize:'2.8rem', lineHeight:1 }}>{item.num}</span>
                   </div>
                 </div>
 

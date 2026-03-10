@@ -362,7 +362,7 @@ export default function Home() {
         <div className="relative safe-x" style={{ paddingTop:'clamp(3.5rem,10vw,5.5rem)', paddingBottom:'clamp(3.5rem,10vw,5.5rem)' }}>
 
           {/* Two-col: text left, image right */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-16">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-10">
 
             {/* LEFT — text */}
             <div className="flex-1" style={{ maxWidth:'480px' }}>
@@ -405,12 +405,12 @@ export default function Home() {
             </div>
 
             {/* RIGHT — stacked images */}
-            <div className="flex-1 w-full lg:w-auto">
-              <div className="grid grid-cols-2 gap-2.5" style={{ maxWidth:'460px' }}>
+            <div className="flex-1 w-full min-w-0">
+              <div className="grid grid-cols-2 gap-2 w-full">
 
-                {/* Large image */}
-                <div className="img-zoom col-span-2 relative" style={{ height:'clamp(180px,42vw,280px)' }}>
-                  <img src="/prod-pumps.jpg" alt="Vitamin C Glow" className="w-full h-full object-cover" style={{ objectPosition:'center 35%' }} />
+                {/* Large image — full width, 16:9 ratio */}
+                <div className="img-zoom col-span-2 relative w-full" style={{ aspectRatio:'16/9' }}>
+                  <img src="/prod-pumps.jpg" alt="Vitamin C Glow" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition:'center 35%' }} />
                   <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(7,21,37,.9) 0%,transparent 55%)' }} />
                   <div className="absolute bottom-3 left-3">
                     <p className="font-black uppercase" style={{ color:'rgba(232,139,77,.7)', fontSize:'7px', letterSpacing:'.38em', marginBottom:'3px' }}>No. 02</p>
@@ -418,9 +418,9 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Small left */}
-                <div className="img-zoom relative" style={{ height:'clamp(120px,28vw,170px)' }}>
-                  <img src="/prod-jars.jpg" alt="Night Repair" className="w-full h-full object-cover" style={{ objectPosition:'center 40%' }} />
+                {/* Small left — square */}
+                <div className="img-zoom relative w-full" style={{ aspectRatio:'1/1' }}>
+                  <img src="/prod-jars.jpg" alt="Night Repair" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition:'center 40%' }} />
                   <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(7,21,37,.88) 0%,transparent 60%)' }} />
                   <div className="absolute bottom-2 left-2">
                     <p className="font-black uppercase" style={{ color:'rgba(142,124,195,.7)', fontSize:'7px', letterSpacing:'.3em', marginBottom:'2px' }}>No. 03</p>
@@ -428,9 +428,9 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Small right */}
-                <div className="img-zoom relative" style={{ height:'clamp(120px,28vw,170px)' }}>
-                  <img src="/prod-lotions.jpg" alt="Peptide Firm" className="w-full h-full object-cover" style={{ objectPosition:'center 35%' }} />
+                {/* Small right — square */}
+                <div className="img-zoom relative w-full" style={{ aspectRatio:'1/1' }}>
+                  <img src="/prod-lotions.jpg" alt="Peptide Firm" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition:'center 35%' }} />
                   <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(7,21,37,.88) 0%,transparent 60%)' }} />
                   <div className="absolute bottom-2 left-2">
                     <p className="font-black uppercase" style={{ color:'rgba(192,192,192,.65)', fontSize:'7px', letterSpacing:'.3em', marginBottom:'2px' }}>No. 05</p>
@@ -571,7 +571,8 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:grid sm:grid-cols-2 gap-2.5">
-            <div className="img-zoom relative sm:row-span-2" style={{ height:'clamp(220px,58vw,440px)' }}>
+            {/* Left tall — height = 2 × right + gap (205×2 + 10 = 420) */}
+            <div className="img-zoom relative sm:row-span-2" style={{ height:'clamp(200px,54vw,420px)' }}>
               <img src="/prod-serums.jpg" alt="Serum Collection" className="w-full h-full object-cover" style={{ objectPosition:'center 30%' }} />
               <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(10,30,48,.88) 0%,transparent 55%)' }} />
               <div className="absolute bottom-4 left-4">
@@ -579,14 +580,16 @@ export default function Home() {
                 <p className="font-black text-white" style={{ fontSize:'clamp(.95rem,3.2vw,1.3rem)' }}>The Core Collection</p>
               </div>
             </div>
-            <div className="img-zoom relative" style={{ height:'clamp(145px,36vw,205px)' }}>
+            {/* Right top — height = (420 - 10) / 2 = 205 */}
+            <div className="img-zoom relative" style={{ height:'clamp(95px,26vw,205px)' }}>
               <img src="/prod-jars.jpg" alt="Glass Vessels" className="w-full h-full object-cover" style={{ objectPosition:'center 40%' }} />
               <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(10,30,48,.8) 0%,transparent 60%)' }} />
               <div className="absolute bottom-3 left-3">
                 <p className="font-black text-white" style={{ fontSize:'clamp(.8rem,2.8vw,1rem)' }}>Glass Vessels</p>
               </div>
             </div>
-            <div className="img-zoom relative" style={{ height:'clamp(145px,36vw,205px)' }}>
+            {/* Right bottom — same height as top */}
+            <div className="img-zoom relative" style={{ height:'clamp(95px,26vw,205px)' }}>
               <img src="/prod-tubes.jpg" alt="Face Wash" className="w-full h-full object-cover" style={{ objectPosition:'center 40%' }} />
               <div className="absolute inset-0" style={{ background:'linear-gradient(to top,rgba(10,30,48,.8) 0%,transparent 60%)' }} />
               <div className="absolute bottom-3 left-3">

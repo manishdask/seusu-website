@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-const navLinks = ['Story', 'Science', 'Products', 'Packaging', 'Contact']
+const navLinks = ['Story', 'Science', 'Products',  'Packaging', 'Contact']
 
 const STYLES = `
   @keyframes drawerIn { from{transform:translateX(100%)} to{transform:translateX(0)} }
@@ -28,8 +28,7 @@ export default function Header() {
   }, [menuOpen])
 
   const isActive = (item: string) =>
-    location.pathname === `/${item.toLowerCase()}` ||
-    (item === 'Story' && location.pathname === '/')
+    location.pathname === `/${item.toLowerCase()}`
 
   return (
     <>
