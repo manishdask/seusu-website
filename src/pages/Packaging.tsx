@@ -35,7 +35,7 @@ export default function Packaging() {
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden"
-        style={{ paddingTop:'4.5rem', paddingBottom:'3rem', background:'linear-gradient(165deg,#03090f 0%,#0a1e30 50%,#091a2a 100%)' }}>
+        style={{ paddingTop:'clamp(5.5rem,14vw,7rem)', paddingBottom:'3rem', background:'linear-gradient(165deg,#03090f 0%,#0a1e30 50%,#091a2a 100%)' }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage:'linear-gradient(rgba(168,209,231,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(168,209,231,.04) 1px,transparent 1px)', backgroundSize:'44px 44px' }} />
         <div className="relative z-10 safe-x">
@@ -59,7 +59,7 @@ export default function Packaging() {
            sm (640): 2 columns
            lg (1024): 3 columns
       ── */}
-      <section style={{ background:'#f7f8fa', padding:'2rem 0 2.5rem' }}>
+      <section style={{ background:'#f7f8fa', padding:'2.5rem 0 2.5rem' }}>
         <div className="safe-x max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {items.map((item, i) => (
@@ -78,7 +78,7 @@ export default function Packaging() {
                 </div>
 
                 {/* info */}
-                <div className="px-4 pb-5 pt-0">
+                <div className="px-4 pb-5 pt-3">
                   <h3 className="font-black text-black leading-tight mb-1"
                     style={{ fontSize:'clamp(.9rem,3.2vw,1.05rem)', letterSpacing:'.02em' }}>
                     {item.title}
